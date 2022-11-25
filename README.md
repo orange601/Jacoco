@@ -19,7 +19,90 @@
   - 예를들어 브랜치 커버리지를 최소한 80% 이상으로 유지하고 싶다면, 이 task에 설정하면 된다. 
   - test task처럼 Gradle 빌드의 성공/실패로 결과를 보여준다.
 
-## 테스트 제외 ##
+
+## jacocoTestCoverageVerification Rule ##
+
+````gradle
+jacocoTestCoverageVerification {
+	def Qdomains = []
+	// 패키지 + 클래스명
+	for (qPattern in '*.QA'..'*.QZ') { // qPattern = '*.QA', '*.QB', ... '*.QZ'
+	    Qdomains.add(qPattern + '*')
+	}
+	
+	violationRules {
+		rule {
+			// 룰을 간단히 켜고 끌 수 있다.
+			enabled = true;
+			// 룰을 체크할 단위는 클래스 단위
+			element = 'CLASS'
+			
+			limit {
+			  counter = 'BRANCH' // 조건문 등의 분기 수
+			  value = 'COVEREDRATIO'
+			  minimum = 0.90 // 브랜치 커버리지를 최소한 90% 만족시켜야 합니다.
+			}
+
+			//limit {
+				//counter = 'METHOD' // 메서드 수, 메서드가 한 번이라도 실행된다면 실행된 것으로 간주
+				//value = 'COVEREDRATIO'
+				//minimum = 0.3
+			//}
+			
+			excludes = [] + Qdomains // 제외할 Qdomains 패턴 추가 ( 측정 무시 )
+		}
+
+	}
+}
+````
+
+#### enable ####
+- 활성화 여부
+
+#### element ####
+- 커버리지를 체크할 기준(단위)을 정할 수 있으며, 총 6개의 기준이 존재
+1. BUNDLE : 패키지 번들(프로젝트 모든 파일을 합친 것)
+2. CLASS : 클래스
+3. GROUP : 논리적 번들 그룹
+4. METHOD : 메서드
+5. PACKAGE : 패키지
+6. SOURCEFILE : 소스 파일
+
+값을 지정하지 않는 경우 Default 값은 BUNDLE
+
+#### counter ####
+- counter 는 limit 메서드를 통해 지정할 수 있으며 커버리지 측정의 최소 단위
+- 측정은 java byte code가 실행된 것을 기준으로 측정되고, 총 6개의 단위가 존재
+1. BRANCH : 조건문 등의 분기 수
+2. CLASS : 클래스 수, 내부 메서드가 한 번이라도 실행된다면 실행된 것으로 간주한다.
+3. COMPLEXITY : 복잡도
+4. INSTRUCTION : Java 바이트코드 명령 수
+5. METHOD : 메서드 수, 메서드가 한 번이라도 실행된다면 실행된 것으로 간주한다.
+6. LINE : 빈 줄을 제외한 실제 코드의 라인 수, 라인이 한 번이라도 실행되면 실행된 것으로 간주한다.
+
+Default 값은 INSTRUCTION
+
+#### value ####
+- value 는 limit 메서드를 통해 지정할 수 있으며 측정한 커버리지를 어떠한 방식으로 보여줄 것인지를 의미
+- 총 5개의 방식이 존재
+1. COVEREDCOUNT : 커버된 개수
+2. COVEREDRATIO : 커버된 비율, 0부터 1사이의 숫자로 1이 100%이다.
+3. MISSEDCOUNT : 커버되지 않은 개수
+4. MISSEDRATIO : 커버되지 않은 비율, 0부터 1사이의 숫자로 1이 100%이다.
+5. TOTALCOUNT : 전체 개수
+
+Default 값은 COVEREDRATIO
+
+#### minimum ####
+- minimum 은 limit 메서드를 통해 지정할 수 있으며 counter 값을 value 에 맞게 표현했을 때 최솟값을 의미. 
+- 이 값을 통해 jacocoTestCoverageVerification 의 성공 여부가 결정
+- 해당 값은 BigDecimal 타입이고 표기한 자릿수만큼 value가 출력
+- 만약 커버리지를 80%를 원했는데 0.80이 아니라 0.8을 입력하면 커버리지가 0.87이라도 0.8로 표시
+
+#### excludes ####
+- 제외할 클래스를 지정
+
+## excludes(테스트 제외) ##
 
 #### Querydsl Q도메인 제거하기 ####
 
