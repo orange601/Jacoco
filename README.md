@@ -2,7 +2,7 @@
   - Gradle 프로젝트 JaCoCo 설정
   - 출처 - [우아한형제들 기술블로그](https://techblog.woowahan.com/2661)
 
-[1.IOC, sdfsdfsdfDI](#1장-IOC-DI)
+[이클립스용TOOL설명](#1장-IOC-DI)
 
 
 
