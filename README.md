@@ -83,3 +83,10 @@ jacocoTestReport {
     }
 }
 ````
+
+#### Lombok 제거 ####
+1. 루트 디렉토리 lombok.config 파일 생성
+2. 설정추가
+````
+lombok.addLombokGeneratedAnnotation = true
+````
