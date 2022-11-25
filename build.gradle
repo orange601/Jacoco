@@ -1,0 +1,87 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.7.5'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+	id 'jacoco' // jacoco plugin 추가
+}
+
+jacoco {
+	// JaCoCo 버전
+	toolVersion = "0.8.8"
+	//  테스트결과 리포트를 저장할 경로
+	reportsDirectory = layout.buildDirectory.dir('customJacocoReportDir')
+}
+
+group = 'com.iaan'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+
+test {
+	finalizedBy jacocoTestReport // test task 실행 시 작업이 끝나고 jacocoTestReport를 실행
+	useJUnitPlatform() // junit5
+}
+
+jacocoTestReport {
+	dependsOn test // jacocoTestReport 에 test라는 종속성을 추가
+    finalizedBy 'jacocoTestCoverageVerification'
+    
+    reports {
+        // 원하는 리포트를 켜고 끌 수 있다.
+        html.enabled true
+        xml.enabled false
+        csv.enabled false
+    }
+    
+    afterEvaluate {
+        classDirectories.setFrom(files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: [
+                "com/blue/green/**Application.class",
+                //"com/baeldung/**/*DTO.*",
+                //"**/config/*"
+            ])
+        }))
+    }
+}
+
+jacocoTestCoverageVerification {
+	violationRules {
+		rule {
+			// // 룰을 간단히 켜고 끌 수 있습니다.
+			enabled = true;
+			// 룰을 체크할 단위는 클래스 단위
+			element = 'CLASS'
+			
+		  	// 브랜치 커버리지를 최소한 90% 만족시켜야 합니다.
+			limit {
+			  counter = 'BRANCH'
+			  value = 'COVEREDRATIO'
+			  minimum = 0.90
+			}
+
+			limit {
+				counter = 'METHOD'
+				value = 'COVEREDRATIO'
+				minimum = 0.5
+			}
+		}
+
+	}
+}
