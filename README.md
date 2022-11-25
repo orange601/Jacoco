@@ -1,8 +1,9 @@
 # Jacoco
   - Gradle 프로젝트 JaCoCo 설정
   - 출처 - [우아한형제들 기술블로그](https://techblog.woowahan.com/2661)
-  - 이클립스용 jacoco 툴 : https://www.jacoco.org/index.html
+  - 이클립스용 jacoco 툴 : EclEmma
   - 이클립스 Marketplace에 EclEmma를 검색해서 설치할 수 있다.
+  - 사이트: https://www.jacoco.org/index.html
 
 ## Jacoco란 ##
   - JaCoCo는 Java 코드의 커버리지를 체크하는 라이브러리
