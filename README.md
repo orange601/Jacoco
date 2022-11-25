@@ -8,7 +8,7 @@
   - 커버리지 기준을 만족시키지 못 하면 배포를 하지 못 하게 할 수 있다.
 
 ## Gradle Jacoco 플러그인 ##
-  - JaCoCo Gradle 플러그인에는 jacocoTestReport와 jacocoTestCoverageVerification task가 있다.
+  - JaCoCo Gradle 플러그인에는 **jacocoTestReport**와 **jacocoTestCoverageVerification** task가 있다.
 
 #### 1. jacocoTestReport ####
   - 바이너리 커버리지 결과를 HTML로 저장. SonarQube 등으로 연동하기 위해 xml, csv 같은 형태로도 리포트를 생성할 수 있다.
