@@ -181,6 +181,7 @@ lombok.addLombokGeneratedAnnotation = true
   - 사이트: https://www.jacoco.org/index.html
   - 이클립스 TOOL 설치 후 버튼이 생성된다.   
   ![launchtoolbar](https://user-images.githubusercontent.com/24876345/203907327-fa470038-a021-4f97-8467-ba981299069d.gif)
+  - **주의** gradle 설정과 무관하다.
   
 ```` 테스트 실행 후 ````  
 ![2022-11-25 14 29 34](https://user-images.githubusercontent.com/24876345/203907621-4a774a86-1776-42d5-9ee1-99a7bff5a8db.png)
