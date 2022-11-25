@@ -1,7 +1,6 @@
 # Jacoco
   - Gradle 프로젝트 JaCoCo 설정
-  - 우아한형제들 기술블로그 참조
-  - 출처: https://techblog.woowahan.com/2661/
+  - 출처 - [우아한형제들 기술블로그](https://techblog.woowahan.com/2661)
 
 ## Jacoco란 ##
   - JaCoCo는 Java 코드의 커버리지를 체크하는 라이브러리
