@@ -182,6 +182,9 @@ lombok.addLombokGeneratedAnnotation = true
   - 이클립스 TOOL 설치 후 버튼이 생성된다.   
   ![launchtoolbar](https://user-images.githubusercontent.com/24876345/203907327-fa470038-a021-4f97-8467-ba981299069d.gif)
   
-  
+```` 테스트 실행 후 ````  
+![2022-11-25 14 29 34](https://user-images.githubusercontent.com/24876345/203907621-4a774a86-1776-42d5-9ee1-99a7bff5a8db.png)
+![2022-11-25 14 29 41](https://user-images.githubusercontent.com/24876345/203907626-ab1ccdd0-8186-47b2-9461-0cb1b5be1b9f.png)
+![2022-11-25 14 29 21](https://user-images.githubusercontent.com/24876345/203907628-e176c7bc-7a48-4374-a228-cac0a706df30.png)
 
 
