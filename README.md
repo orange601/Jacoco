@@ -94,7 +94,7 @@ Default 값은 INSTRUCTION
 Default 값은 COVEREDRATIO
 
 #### minimum ####
-- minimum 은 limit 메서드를 통해 지정할 수 있으며 counter 값을 value 에 맞게 표현했을 때 최솟값을 의미. 
+- minimum 은 limit 메서드를 통해 지정할 수 있으며 counter 값을 value 에 맞게 표현했을 때 최솟값을 의미
 - 이 값을 통해 jacocoTestCoverageVerification 의 성공 여부가 결정
 - 해당 값은 BigDecimal 타입이고 표기한 자릿수만큼 value가 출력
 - 만약 커버리지를 80%를 원했는데 0.80이 아니라 0.8을 입력하면 커버리지가 0.87이라도 0.8로 표시
