@@ -1,6 +1,12 @@
 # Jacoco
   - Gradle 프로젝트 JaCoCo 설정
   - 출처 - [우아한형제들 기술블로그](https://techblog.woowahan.com/2661)
+
+[1.IOC, DI](#1장-IOC-DI)
+
+
+
+  
   - 이클립스용 jacoco 툴 : EclEmma
   - 이클립스 Marketplace에 EclEmma를 검색해서 설치할 수 있다.
   - 사이트: https://www.jacoco.org/index.html
@@ -175,3 +181,6 @@ jacocoTestReport {
 ````
 lombok.addLombokGeneratedAnnotation = true
 ````
+
+
+## 1장. IOC, DI ##
