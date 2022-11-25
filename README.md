@@ -176,6 +176,7 @@ lombok.addLombokGeneratedAnnotation = true
 
 
 ## 이클립스용 TOOL 설명 ##
-  - 이클립스용 jacoco 툴 : EclEmma
+  - 이름 : EclEmma
   - 이클립스 Marketplace에 EclEmma를 검색해서 설치할 수 있다.
   - 사이트: https://www.jacoco.org/index.html
+
