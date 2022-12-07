@@ -179,7 +179,6 @@ lombok.addLombokGeneratedAnnotation = true
   - 이름 : EclEmma
   - 이클립스 Marketplace에 EclEmma를 검색해서 설치할 수 있다.
   - 사이트: https://www.jacoco.org/index.html
-  - 개인적으로 사용하기엔 괜찮지만, 팀원과 사용하기엔 무리가 있어 보인다.
   - 이클립스 TOOL 설치 후 버튼이 생성된다.   
   ![launchtoolbar](https://user-images.githubusercontent.com/24876345/203907327-fa470038-a021-4f97-8467-ba981299069d.gif)
   - **주의** gradle 설정과 무관하다.
